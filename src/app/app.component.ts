@@ -41,6 +41,7 @@ export class AppComponent {
 
     saveResults() {
         this.dm.guesses = this.guesses;
+        this.dm.images = this.images;
     }
 
     private updateNameGuesses() {

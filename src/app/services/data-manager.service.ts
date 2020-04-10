@@ -35,6 +35,10 @@ export class DataManagerService {
         return this._images;
     }
 
+    set images(value: ImageModel[]) {
+        this._images = value;
+    }
+
     get guesses(): ImageGuessModel[] {
         return this._guesses;
     }
