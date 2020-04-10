@@ -1,5 +1,9 @@
 <h2>Take a guess</h2>
 
+<div class="image">
+    <img class="selected-img" src="{{ imageSrc }}" alt="" srcset="" />
+</div>
+
 <div class="guesses">
     <div *ngFor="let guess of data.imageGuesses" class="guess">
         <button

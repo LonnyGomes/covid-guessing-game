@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NamesDialogModel } from '../models/names-dialog.model';
 import { ImageGuessModel } from '../models/image-guess.model';
+import { DataManagerService } from '../services/data-manager.service';
 
 @Component({
     selector: 'app-names-dialog',
@@ -10,11 +11,15 @@ import { ImageGuessModel } from '../models/image-guess.model';
 })
 export class NamesDialogComponent implements OnInit {
     constructor(
+        private dm: DataManagerService,
         public dialogRef: MatDialogRef<NamesDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data: NamesDialogModel
     ) {}
 
-    ngOnInit(): void {}
+    imageSrc: string;
+    ngOnInit(): void {
+        this.imageSrc = this.dm.getImageForIndex(this.data.selectedImageIndex);
+    }
 
     onGuessClicked(guess: ImageGuessModel) {
         this.data.imageGuesses.forEach((curGuess) => {

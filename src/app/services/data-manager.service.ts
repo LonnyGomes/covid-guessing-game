@@ -37,4 +37,14 @@ export class DataManagerService {
     get guesses(): ImageGuessModel[] {
         return this._guesses;
     }
+
+    getImageForIndex(index: number): string {
+        const [result] = this._images.filter((item) => item.index === index);
+
+        if (result) {
+            return result.src;
+        }
+
+        return '';
+    }
 }
