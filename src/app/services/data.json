@@ -1,12 +1,5 @@
 {
-    "names": [
-        "Person 1",
-        "Person 2",
-        "Person 3",
-        "Person 4",
-        "Person 5",
-        "Person 6"
-    ],
+    "names": ["Kristin", "James", "Liz", "Ron", "Janine", "Lonny"],
     "images": [
         "jim-carrey-worried.gif",
         "wooded-path.png",
