@@ -9,9 +9,10 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NamesDialogComponent } from './names-dialog/names-dialog.component';
 import { EntryComponent } from './entry/entry.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
-    declarations: [AppComponent, NamesDialogComponent, EntryComponent],
+    declarations: [AppComponent, NamesDialogComponent, EntryComponent, ResultsComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
