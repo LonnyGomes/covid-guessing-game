@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import data from './data.json';
+import { ImageModel } from '../models/image.model';
 
 const BASE_IMG_PATH = 'assets/images';
 @Injectable({
@@ -12,7 +13,10 @@ export class DataManagerService {
         return data.names;
     }
 
-    get images(): string[] {
-        return data.images.map((img) => `${BASE_IMG_PATH}/${img}`);
+    get images(): ImageModel[] {
+        return data.images.map((img, index) => ({
+            index,
+            src: `${BASE_IMG_PATH}/${img}`,
+        }));
     }
 }
