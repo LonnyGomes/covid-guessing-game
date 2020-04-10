@@ -8,11 +8,11 @@
         <mat-card-header>
             <mat-card-title>{{ image.guessedName }}</mat-card-title>
         </mat-card-header>
-        <img
+        <div
+            class="img-cover"
             (click)="openDialog(image.index)"
-            class="img"
-            src="{{ image.src }}"
-        />
+            [style.backgroundImage]="'url(' + image.src + ')'"
+        ></div>
     </mat-card>
 </div>
 
