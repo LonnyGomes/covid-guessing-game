@@ -3,10 +3,16 @@
         Guess the GIF
     </div>
 </header>
-<div class="img-container" *ngFor="let image of images">
-    <img (click)="openDialog(image.index)" class="img" src="{{ image.src }}" />
-    <div class="guessed-name">
-        <span [innerHTML]="image.guessedName"></span>
+<div class="images">
+    <div class="img-container" *ngFor="let image of images">
+        <img
+            (click)="openDialog(image.index)"
+            class="img"
+            src="{{ image.src }}"
+        />
+        <div class="guessed-name">
+            <span [innerHTML]="image.guessedName"></span>
+        </div>
     </div>
 </div>
 

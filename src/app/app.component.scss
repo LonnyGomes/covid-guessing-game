@@ -1,4 +1,12 @@
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .img-container {
+    padding: 5px;
     .img {
         max-width: 320px;
     }
