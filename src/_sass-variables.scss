@@ -1,0 +1,7 @@
+$header-font: 'Lobster', cursive;
+$header-background: linear-gradient(
+    180deg,
+    rgba(63, 81, 181, 1) 35%,
+    rgb(81, 63, 181) 100%
+);
+$header-background-fallback: rgb(81, 63, 181);
