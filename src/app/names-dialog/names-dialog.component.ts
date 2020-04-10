@@ -29,5 +29,6 @@ export class NamesDialogComponent implements OnInit {
             }
         });
         guess.imageIndex = this.data.selectedImageIndex;
+        this.dialogRef.close(this.data);
     }
 }
