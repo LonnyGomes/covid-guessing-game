@@ -7,16 +7,22 @@ const BASE_IMG_PATH = 'assets/images';
     providedIn: 'root',
 })
 export class DataManagerService {
-    constructor() {}
+    // tslint:disable-next-line: variable-name
+    private _images: ImageModel[];
+
+    constructor() {
+        this._images = data.images.map((img, index) => ({
+            index,
+            src: `${BASE_IMG_PATH}/${img}`,
+            guessedName: '❓',
+        }));
+    }
 
     get names(): string[] {
         return data.names;
     }
 
     get images(): ImageModel[] {
-        return data.images.map((img, index) => ({
-            index,
-            src: `${BASE_IMG_PATH}/${img}`,
-        }));
+        return this._images;
     }
 }

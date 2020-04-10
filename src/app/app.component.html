@@ -6,7 +6,7 @@
 <div class="img-container" *ngFor="let image of images">
     <img class="img" src="{{ image.src }}" />
     <div class="guessed-name">
-        <span [innerHTML]="image.guessedName || '❓'"></span>
+        <span [innerHTML]="image.guessedName"></span>
     </div>
 </div>
 
