@@ -4,7 +4,7 @@
     </div>
 </header>
 <div class="img-container" *ngFor="let image of images">
-    <img class="img" src="{{ image.src }}" />
+    <img (click)="openDialog(image.index)" class="img" src="{{ image.src }}" />
     <div class="guessed-name">
         <span [innerHTML]="image.guessedName"></span>
     </div>

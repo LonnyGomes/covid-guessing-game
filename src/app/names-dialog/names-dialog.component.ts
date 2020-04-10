@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NamesDialogModel } from '../models/names-dialog.model';
 
 @Component({
     selector: 'app-names-dialog',
@@ -6,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./names-dialog.component.scss'],
 })
 export class NamesDialogComponent implements OnInit {
-    constructor() {}
+    constructor(
+        public dialogRef: MatDialogRef<NamesDialogComponent>,
+        @Inject(MAT_DIALOG_DATA) data: NamesDialogModel
+    ) {}
 
     ngOnInit(): void {}
 }
