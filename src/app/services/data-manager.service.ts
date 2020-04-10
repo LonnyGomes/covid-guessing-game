@@ -38,6 +38,9 @@ export class DataManagerService {
     get guesses(): ImageGuessModel[] {
         return this._guesses;
     }
+    set guesses(value: ImageGuessModel[]) {
+        this._guesses = value;
+    }
 
     getImageForIndex(index: number): string {
         const [result] = this._images.filter((item) => item.index === index);

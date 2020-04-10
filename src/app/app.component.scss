@@ -2,7 +2,7 @@
 
 .grid-content {
     display: grid;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 50px auto 50px;
 }
 
 .header-content {
@@ -56,4 +56,19 @@
 .guessed-name-title {
     font-style: italic;
     font-weight: normal;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $header-background-fallback;
+    background: $header-background;
+    height: 100%;
+
+    button {
+        height: 35px;
+        font-size: 1.2rem;
+        font-family: $header-font;
+    }
 }

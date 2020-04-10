@@ -38,6 +38,10 @@ export class AppComponent {
         });
     }
 
+    saveResults() {
+        this.dm.guesses = this.guesses;
+    }
+
     private updateNameGuesses() {
         const guessesHash = this.guesses.reduce((result, curItem) => {
             if (curItem.imageIndex) {
