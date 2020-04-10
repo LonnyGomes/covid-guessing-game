@@ -6,13 +6,31 @@
 <div class="images">
     <mat-card class="img-container" *ngFor="let image of images">
         <mat-card-header>
-            <mat-card-title>{{ image.guessedName }}</mat-card-title>
+            <mat-card-title
+                ><span
+                    class="img-title"
+                    [innerHTML]="'Image #' + image.index + ': '"
+                ></span
+                ><span class="guessed-name-title">{{
+                    image.guessedName
+                }}</span></mat-card-title
+            >
         </mat-card-header>
         <div
             class="img-cover"
             (click)="openDialog(image.index)"
             [style.backgroundImage]="'url(' + image.src + ')'"
         ></div>
+        <mat-card-actions class="card-actions">
+            <button
+                (click)="openDialog(image.index)"
+                class="guess-btn"
+                mat-flat-button
+                color="primary"
+            >
+                Take a Guess
+            </button>
+        </mat-card-actions>
     </mat-card>
 </div>
 

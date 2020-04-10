@@ -10,10 +10,27 @@ $img-dimension: 320px;
 .img-container {
     padding: 5px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .img-cover {
     width: $img-dimension;
     height: $img-dimension;
     background-size: cover;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.guess-btn {
+    width: 95%;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.guessed-name-title {
+    font-style: italic;
+    font-weight: normal;
 }

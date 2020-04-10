@@ -8,8 +8,8 @@
     <div *ngFor="let guess of data.imageGuesses" class="guess">
         <button
             (click)="onGuessClicked(guess)"
-            mat-raised-button
-            [color]="guess.imageIndex ? 'accent' : 'primary'"
+            mat-flat-button
+            [color]="guess.imageIndex ? '' : 'primary'"
         >
             {{ guess.name }}
         </button>
