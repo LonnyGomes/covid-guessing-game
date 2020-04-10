@@ -15,6 +15,7 @@ export class AppComponent {
     title = 'covid-guessing-game';
     images: ImageModel[] = [];
     guesses: ImageGuessModel[];
+    hasVoted = false;
     constructor(private dm: DataManagerService, public dialog: MatDialog) {
         this.images = dm.images;
         this.guesses = dm.guesses;
@@ -49,6 +50,8 @@ export class AppComponent {
             }
             return result;
         }, {});
+
+        this.hasVoted = Object.keys(guessesHash).length === this.images.length;
 
         // update images with the selections from the guesses results
         this.images.forEach(

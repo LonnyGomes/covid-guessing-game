@@ -37,7 +37,12 @@
         </mat-card>
     </div>
     <footer class="footer-content">
-        <button (click)="saveResults()" mat-flat-button color="primary">
+        <button
+            (click)="saveResults()"
+            mat-flat-button
+            [disabled]="!hasVoted"
+            [color]="hasVoted ? 'primary' : 'disabled'"
+        >
             Save Results
         </button>
     </footer>
