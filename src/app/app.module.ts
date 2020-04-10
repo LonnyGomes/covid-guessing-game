@@ -8,9 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NamesDialogComponent } from './names-dialog/names-dialog.component';
+import { EntryComponent } from './entry/entry.component';
 
 @NgModule({
-    declarations: [AppComponent, NamesDialogComponent],
+    declarations: [AppComponent, NamesDialogComponent, EntryComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -20,6 +21,6 @@ import { NamesDialogComponent } from './names-dialog/names-dialog.component';
         BrowserAnimationsModule,
     ],
     providers: [],
-    bootstrap: [AppComponent],
+    bootstrap: [EntryComponent],
 })
 export class AppModule {}
