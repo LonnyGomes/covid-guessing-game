@@ -4,16 +4,16 @@
     </div>
 </header>
 <div class="images">
-    <div class="img-container" *ngFor="let image of images">
+    <mat-card class="img-container" *ngFor="let image of images">
+        <mat-card-header>
+            <mat-card-title>{{ image.guessedName }}</mat-card-title>
+        </mat-card-header>
         <img
             (click)="openDialog(image.index)"
             class="img"
             src="{{ image.src }}"
         />
-        <div class="guessed-name">
-            <span [innerHTML]="image.guessedName"></span>
-        </div>
-    </div>
+    </mat-card>
 </div>
 
 <router-outlet></router-outlet>
