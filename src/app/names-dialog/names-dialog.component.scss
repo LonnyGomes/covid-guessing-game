@@ -1,9 +1,21 @@
+@import '../../sass-variables';
+
+.header {
+    display: flex;
+    justify-content: center;
+    h2 {
+        font-family: $header-font;
+        font-size: 1.5rem;
+    }
+}
+
 .image {
     display: flex;
     flex-direction: column;
     align-items: center;
     .selected-img {
-        width: 240px;
+        max-width: 300px;
+        border: 1px solid #fff;
     }
 }
 

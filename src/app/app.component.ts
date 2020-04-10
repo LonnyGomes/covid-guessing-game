@@ -23,6 +23,7 @@ export class AppComponent {
     openDialog(index: number): void {
         const dialogRef = this.dialog.open(NamesDialogComponent, {
             maxWidth: '400px',
+            hasBackdrop: true,
             data: { selectedImageIndex: index, imageGuesses: this.guesses },
         });
 

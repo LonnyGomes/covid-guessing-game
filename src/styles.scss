@@ -9,3 +9,8 @@ body {
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     background-color: #b6b6b6;
 }
+
+// overrides
+.cdk-overlay-pane {
+    margin: 5px;
+}
