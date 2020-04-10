@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataManagerService } from './services/data-manager.service';
+import { ImageModel } from './models/image.model';
 
 @Component({
     selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'covid-guessing-game';
+    images: ImageModel[] = [];
+    constructor(private dm: DataManagerService) {
+        this.images = dm.images;
+    }
 }

@@ -1,1 +1,13 @@
+<header>
+    <div class="header-content">
+        Guess the GIF
+    </div>
+</header>
+<div class="img-container" *ngFor="let image of images">
+    <img class="img" src="{{ image.src }}" />
+    <div class="guessed-name">
+        <span [innerHTML]="image.guessedName || '❓'"></span>
+    </div>
+</div>
+
 <router-outlet></router-outlet>
