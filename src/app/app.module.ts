@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NamesDialogComponent } from './names-dialog/names-dialog.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, NamesDialogComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
