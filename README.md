@@ -1,5 +1,7 @@
 # CovidGuessingGame
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/994b73da-a9d5-405c-b1c5-335cc0d3da2e/deploy-status)](https://app.netlify.com/sites/smallgroup-guessing-game/deploys)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
 ## Development server
