@@ -1,5 +1,20 @@
 $img-dimension: 320px;
+.grid-content {
+    display: grid;
+    grid-template-rows: 50px auto;
+}
 
+.header-content {
+    display: flex;
+    align-items: center;
+    background-color: #3f51b5;
+    height: 100%;
+    h1 {
+        color: #fff;
+        margin: 0px;
+        padding-left: 5px;
+    }
+}
 .images {
     display: flex;
     flex-wrap: wrap;
