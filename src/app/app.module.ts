@@ -11,6 +11,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NamesDialogComponent } from './names-dialog/names-dialog.component';
 import { EntryComponent } from './entry/entry.component';
 import { ResultsComponent } from './results/results.component';
+import { SplashComponent } from './splash/splash.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { ResultsComponent } from './results/results.component';
         NamesDialogComponent,
         EntryComponent,
         ResultsComponent,
+        SplashComponent,
     ],
     imports: [
         BrowserModule,
