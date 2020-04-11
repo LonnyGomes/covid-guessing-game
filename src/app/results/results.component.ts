@@ -27,17 +27,20 @@ export class ResultsComponent implements OnInit {
 
             if (navigator['share']) {
                 // share API supported!
-                navigator['share']({
+                await navigator['share']({
                     title: 'Guess Results',
                     text: 'Check out my results',
                     url: dataURL,
                 });
+                alert('Shared!');
             } else {
                 const el = document.createElement('a');
                 el.href = dataURL;
                 el.download = 'guess-results.png';
                 el.click();
             }
-        } catch (error) {}
+        } catch (error) {
+            alert(`Failed to save results: ${error.message}`);
+        }
     }
 }
