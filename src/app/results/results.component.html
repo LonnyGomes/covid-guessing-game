@@ -1,22 +1,18 @@
 <div class="container">
     <header class="header">
-        <h1>Guess Results</h1>
+        <h1>My Guess Results</h1>
     </header>
     <div class="results">
         <div *ngFor="let image of images" class="result-item">
-            <h3 [innerHTML]="image.guessedName"></h3>
             <div
                 class="img-cover"
                 [style.backgroundImage]="'url(' + image.src + ')'"
-            ></div>
+            >
+                <h3>#{{ image.index }} - {{ image.guessedName }}</h3>
+            </div>
         </div>
     </div>
-    <button
-        data-html2canvas-ignore
-        mat-flat-button
-        color="primary"
-        (click)="saveResults()"
-    >
+    <button mat-flat-button color="primary" (click)="saveResults()">
         {{ supportsSharing ? 'Share' : 'Save' }} results
     </button>
 </div>

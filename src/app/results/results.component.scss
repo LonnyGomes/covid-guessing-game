@@ -1,6 +1,11 @@
 @import '../../sass-variables';
 
 $result-img-size: 200px;
+$result-img-padding: 10px;
+$result-img-mobile-size: 150px;
+$grid-col-count: 3;
+$grid-mobile-breakpoint: $result-img-size * $grid-col-count +
+    ($grid-col-count * $result-img-padding);
 
 ::ng-deep {
     body {
@@ -28,8 +33,39 @@ $result-img-size: 200px;
     }
 }
 
-.img-cover {
-    width: $result-img-size;
-    height: $result-img-size;
-    background-size: cover;
+.results {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(
+        $grid-col-count,
+        $result-img-size + $result-img-padding
+    );
+
+    @media screen and (max-width: $grid-mobile-breakpoint) {
+        grid-template-columns: repeat(
+            $grid-col-count - 1,
+            $result-img-mobile-size + $result-img-padding
+        );
+    }
+}
+
+.result-item {
+    margin: 5px;
+    h3 {
+        font-family: $header-font;
+        font-size: 1.5rem;
+        margin: 0px;
+        background-color: $bg-color-1;
+        color: #fff;
+        padding: 3px 4px;
+    }
+    .img-cover {
+        width: $result-img-size;
+        height: $result-img-size;
+        background-size: cover;
+        @media screen and (max-width: $grid-mobile-breakpoint) {
+            width: $result-img-mobile-size;
+            height: $result-img-mobile-size;
+        }
+    }
 }

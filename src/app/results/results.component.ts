@@ -64,10 +64,13 @@ export class ResultsComponent implements OnInit {
                     url: window.location.href,
                 });
             } else {
-                const canvas = await html2canvas(document.body, {
-                    backgroundColor: '#ccc',
-                    logging: false,
-                });
+                const canvas = await html2canvas(
+                    document.querySelector('.results'),
+                    {
+                        backgroundColor: '#ccc',
+                        logging: false,
+                    }
+                );
                 const dataURL = canvas.toDataURL('image/png');
                 const el = document.createElement('a');
                 el.href = dataURL;
