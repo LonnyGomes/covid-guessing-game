@@ -19,6 +19,7 @@ export class DataManagerService {
             index: index + 1,
             src: `${BASE_IMG_PATH}/${img}`,
             guessedName: this.DEFAULT_NAME,
+            guess: null,
         }));
 
         this._guesses = data.names.map((name, index) => ({

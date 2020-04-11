@@ -47,7 +47,7 @@ export class AppComponent {
     private updateNameGuesses() {
         const guessesHash = this.guesses.reduce((result, curItem) => {
             if (curItem.imageIndex) {
-                result[curItem.imageIndex] = curItem.name;
+                result[curItem.imageIndex] = curItem;
             }
             return result;
         }, {});
@@ -55,10 +55,10 @@ export class AppComponent {
         this.hasVoted = Object.keys(guessesHash).length === this.images.length;
 
         // update images with the selections from the guesses results
-        this.images.forEach(
-            (image) =>
-                (image.guessedName =
-                    guessesHash[image.index] || this.dm.DEFAULT_NAME)
-        );
+        this.images.forEach((image) => {
+            image.guessedName =
+                guessesHash[image.index]?.name || this.dm.DEFAULT_NAME;
+            image.guess = guessesHash[image.index] || null;
+        });
     }
 }
