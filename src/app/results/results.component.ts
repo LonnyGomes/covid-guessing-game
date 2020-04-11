@@ -18,6 +18,7 @@ export class ResultsComponent implements OnInit {
     guesses: ImageGuessModel[];
     images: ImageModel[];
     supportsSharing = false;
+    sharingMessage = 'Here are a my guesses';
 
     ngOnInit(): void {
         this.supportsSharing = navigator.share ? true : false;
@@ -27,6 +28,7 @@ export class ResultsComponent implements OnInit {
             const guessData = Number(params.get('guessData'));
             if (!isNaN(guessData)) {
                 this.decodeGuessData(guessData);
+                this.sharingMessage = this.genSharingMessage();
             }
         });
     }
@@ -54,13 +56,21 @@ export class ResultsComponent implements OnInit {
         }
     }
 
+    genSharingMessage() {
+        return 'My guess results: \n'.concat(
+            this.images
+                .map((image) => `#${image.index}: ${image.guessedName}`)
+                .join(', ')
+        );
+    }
+
     async saveResults() {
         try {
             if (navigator.share) {
                 // share API supported!
                 await navigator.share({
                     title: 'My guess results',
-                    text: 'Here are a few of my results',
+                    text: this.sharingMessage,
                     url: window.location.href,
                 });
             } else {
