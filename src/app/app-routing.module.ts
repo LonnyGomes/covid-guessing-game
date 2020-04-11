@@ -6,6 +6,7 @@ import { ResultsComponent } from './results/results.component';
 const routes: Routes = [
     { path: '', component: AppComponent },
     { path: 'results', component: ResultsComponent },
+    { path: 'results/:guessData', component: ResultsComponent },
     { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 
