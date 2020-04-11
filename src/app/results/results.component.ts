@@ -30,7 +30,7 @@ export class ResultsComponent implements OnInit {
                 await navigator['share']({
                     title: 'Guess Results',
                     text: 'Check out my results',
-                    url: dataURL,
+                    url: `data://${dataURL}`,
                 });
                 alert('Shared!');
             } else {
