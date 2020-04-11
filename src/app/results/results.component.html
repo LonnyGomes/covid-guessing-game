@@ -1,1 +1,17 @@
-<p>results works!</p>
+<div class="container">
+    <header class="header">
+        <h1>Guess Results</h1>
+    </header>
+    <div class="results">
+        <div *ngFor="let image of images" class="result-item">
+            <h3 [innerHTML]="image.guessedName"></h3>
+            <div
+                class="img-cover"
+                [style.backgroundImage]="'url(' + image.src + ')'"
+            ></div>
+        </div>
+    </div>
+    <button mat-flat-button color="primary" (click)="saveResults()">
+        Share results
+    </button>
+</div>

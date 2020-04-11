@@ -1,0 +1,35 @@
+@import '../../sass-variables';
+
+$result-img-size: 200px;
+
+::ng-deep {
+    body {
+        background: $bg-color-plain;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    background: $header-background-fallback;
+    background: $header-background;
+    height: 60px;
+    h1 {
+        font-family: $header-font;
+        color: #fff;
+        margin: 0px;
+        padding-left: 10px;
+    }
+}
+
+.img-cover {
+    width: $result-img-size;
+    height: $result-img-size;
+    background-size: cover;
+}
