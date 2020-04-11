@@ -3,7 +3,7 @@ import { DataManagerService } from '../services/data-manager.service';
 import { ImageGuessModel } from '../models/image-guess.model';
 import { ImageModel } from '../models/image.model';
 import html2canvas from 'html2canvas';
-
+declare const navigator: any;
 @Component({
     selector: 'app-results',
     templateUrl: './results.component.html',
@@ -25,12 +25,11 @@ export class ResultsComponent implements OnInit {
             });
             const dataURL = canvas.toDataURL('image/png');
 
-            if (navigator['share']) {
+            if (navigator.share) {
                 // share API supported!
-                await navigator['share']({
+                await navigator.share({
                     title: 'Guess Results',
-                    text: 'Check out my results',
-                    url: `https://google.com`,
+                    url: window.location.href,
                 });
                 alert('Shared!');
             } else {
