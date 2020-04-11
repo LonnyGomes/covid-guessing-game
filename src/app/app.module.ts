@@ -7,7 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NamesDialogComponent } from './names-dialog/names-dialog.component';
 import { EntryComponent } from './entry/entry.component';
 import { ResultsComponent } from './results/results.component';
@@ -26,7 +26,7 @@ import { ResultsComponent } from './results/results.component';
         MatButtonModule,
         MatCardModule,
         MatIconModule,
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
     ],
     providers: [],
     bootstrap: [EntryComponent],
