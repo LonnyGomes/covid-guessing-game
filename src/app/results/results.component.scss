@@ -16,6 +16,7 @@ $grid-mobile-breakpoint: $result-img-size * $grid-col-count +
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .header {
@@ -25,6 +26,7 @@ $grid-mobile-breakpoint: $result-img-size * $grid-col-count +
     background: $header-background-fallback;
     background: $header-background;
     height: 60px;
+    width: 100%;
     h1 {
         font-family: $header-font;
         color: #fff;
@@ -68,4 +70,9 @@ $grid-mobile-breakpoint: $result-img-size * $grid-col-count +
             height: $result-img-mobile-size;
         }
     }
+}
+
+.save-share-btn {
+    width: 50%;
+    margin: 10px 5px;
 }

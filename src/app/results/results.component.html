@@ -12,7 +12,12 @@
             </div>
         </div>
     </div>
-    <button mat-flat-button color="primary" (click)="saveResults()">
+    <button
+        class="save-share-btn"
+        mat-flat-button
+        color="primary"
+        (click)="saveResults()"
+    >
         {{ supportsSharing ? 'Share' : 'Save' }} results
     </button>
 </div>
