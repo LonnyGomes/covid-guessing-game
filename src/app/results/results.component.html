@@ -11,7 +11,12 @@
             ></div>
         </div>
     </div>
-    <button mat-flat-button color="primary" (click)="saveResults()">
-        Share results
+    <button
+        data-html2canvas-ignore
+        mat-flat-button
+        color="primary"
+        (click)="saveResults()"
+    >
+        {{ supportsSharing ? 'Share' : 'Save' }} results
     </button>
 </div>

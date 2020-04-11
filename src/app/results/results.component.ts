@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataManagerService } from '../services/data-manager.service';
 import { ImageGuessModel } from '../models/image-guess.model';
 import { ImageModel } from '../models/image.model';
@@ -10,21 +10,24 @@ declare const navigator: any;
     templateUrl: './results.component.html',
     styleUrls: ['./results.component.scss'],
 })
-export class ResultsComponent implements OnInit, AfterViewInit {
+export class ResultsComponent implements OnInit {
     constructor(
         private dm: DataManagerService,
         private route: ActivatedRoute
     ) {}
     guesses: ImageGuessModel[];
     images: ImageModel[];
-    dataURL: any;
+    supportsSharing = false;
+
     ngOnInit(): void {
+        this.supportsSharing = navigator.share ? true : false;
         this.guesses = this.dm.guesses;
         this.images = this.dm.images;
         this.route.paramMap.subscribe((params) => {
             const guessData = Number(params.get('guessData'));
-            console.log(guessData);
-            this.decodeGuessData(guessData);
+            if (!isNaN(guessData)) {
+                this.decodeGuessData(guessData);
+            }
         });
     }
 
@@ -41,21 +44,13 @@ export class ResultsComponent implements OnInit, AfterViewInit {
             const curGuessIdx = (guessData >> (idx * shiftIncrement)) & 0xf;
 
             const curGuess = this.dm.getGuessByIndex(curGuessIdx);
-            image.guess = curGuess;
-            image.guessedName = curGuess.name;
+
+            if (curGuess) {
+                image.guess = curGuess;
+                image.guessedName = curGuess.name;
+            }
 
             idx += 1;
-        }
-    }
-
-    async ngAfterViewInit() {
-        try {
-            const canvas = await html2canvas(document.body, {
-                backgroundColor: '#ccc',
-            });
-            this.dataURL = canvas.toDataURL('image/png');
-        } catch (error) {
-            console.error(`Error while taking snapshot: ${error.message}`);
         }
     }
 
@@ -64,17 +59,23 @@ export class ResultsComponent implements OnInit, AfterViewInit {
             if (navigator.share) {
                 // share API supported!
                 await navigator.share({
-                    text: 'Guess results',
-                    url: this.dataURL,
+                    title: 'My guess results',
+                    text: 'Here are a few of my results',
+                    url: window.location.href,
                 });
             } else {
+                const canvas = await html2canvas(document.body, {
+                    backgroundColor: '#ccc',
+                    logging: false,
+                });
+                const dataURL = canvas.toDataURL('image/png');
                 const el = document.createElement('a');
-                el.href = this.dataURL;
+                el.href = dataURL;
                 el.download = 'guess-results.png';
                 el.click();
             }
         } catch (error) {
-            alert(`Failed to save results: ${error.message}`);
+            console.error(`Failed to save results: ${error.message}`);
         }
     }
 }
