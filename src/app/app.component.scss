@@ -40,6 +40,10 @@
 .card-actions {
     display: flex;
     justify-content: center;
+
+    .card-btn-text {
+        font-family: $header-font;
+    }
 }
 
 .guess-btn {

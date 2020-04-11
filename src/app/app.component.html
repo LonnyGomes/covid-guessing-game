@@ -29,9 +29,10 @@
                     (click)="openDialog(image.index)"
                     class="guess-btn"
                     mat-flat-button
-                    color="primary"
+                    [color]="image.guess ? '' : 'primary'"
                 >
-                    Take a Guess
+                    <mat-icon>ballot</mat-icon>
+                    <span class="card-btn-text"> Take a Guess</span>
                 </button>
             </mat-card-actions>
         </mat-card>
