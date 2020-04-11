@@ -2,7 +2,7 @@
 
 .grid-content {
     display: grid;
-    grid-template-rows: 50px auto 50px;
+    grid-template-rows: 50px auto 70px;
 }
 
 .header-content {
@@ -66,9 +66,10 @@
     background: $header-background;
     height: 100%;
 
+    padding-bottom: 20px;
     button {
         height: 35px;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-family: $header-font;
     }
 }
