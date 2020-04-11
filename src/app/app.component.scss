@@ -12,11 +12,7 @@ $img-padding: 10px;
     display: flex;
     align-items: center;
     background: $header-background-fallback;
-    background: linear-gradient(
-        150deg,
-        rgba(194, 24, 91, 1) 0%,
-        rgba(81, 63, 181, 1) 100%
-    );
+    background: $header-background;
     height: 100%;
     border-radius: 0px 0px 5px 5px;
     h1 {
