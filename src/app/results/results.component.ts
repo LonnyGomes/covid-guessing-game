@@ -34,13 +34,10 @@ export class ResultsComponent implements OnInit, AfterViewInit {
         try {
             if (navigator.share) {
                 // share API supported!
-                const shareUrl = `${window.location.protocol}//${window.location.host}`;
-
                 await navigator.share({
                     text: 'Guess results',
-                    url: shareUrl,
+                    url: this.dataURL,
                 });
-                alert(`Sharing: ${shareUrl}`);
             } else {
                 const el = document.createElement('a');
                 el.href = this.dataURL;
