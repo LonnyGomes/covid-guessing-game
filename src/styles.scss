@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import './sass-variables';
 html,
 body {
     height: 100%;
@@ -18,4 +18,16 @@ body {
 // overrides
 .cdk-overlay-pane {
     margin: 5px;
+}
+
+.custom-panel {
+    mat-dialog-container {
+        background: $panel-background-fallback;
+        background: $panel-background;
+    }
+}
+
+.mat-card {
+    background: $panel-background-fallback;
+    background: $panel-background;
 }

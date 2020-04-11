@@ -30,6 +30,8 @@ export class AppComponent {
         const dialogRef = this.dialog.open(NamesDialogComponent, {
             maxWidth: '400px',
             hasBackdrop: true,
+            autoFocus: false,
+            panelClass: 'custom-panel',
             data: { selectedImageIndex: index, imageGuesses: this.guesses },
         });
 

@@ -1,7 +1,13 @@
 $header-font: 'Lobster', cursive;
-$bg-color-1: rgba(63, 81, 181, 1);
-$bg-color-2: rgb(81, 63, 181);
+$bg-color-1: #3f51b5;
+$bg-color-2: #513fb5;
 $bg-color-plain: #ccc;
 $header-background: linear-gradient(180deg, $bg-color-1 35%, $bg-color-2 100%);
 $header-background-fallback: rgb(81, 63, 181);
 $img-dimension: 300px;
+$panel-background: radial-gradient(
+    circle,
+    rgba(63, 81, 181, 1) 0%,
+    rgba(81, 63, 181, 1) 100%
+);
+$panel-background-fallback: rgb(63, 81, 181);
