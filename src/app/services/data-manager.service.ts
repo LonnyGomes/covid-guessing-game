@@ -57,4 +57,10 @@ export class DataManagerService {
 
         return '';
     }
+
+    getGuessByIndex(index: number): ImageGuessModel {
+        const [result] = this._guesses.filter((item) => item.index === index);
+
+        return result;
+    }
 }

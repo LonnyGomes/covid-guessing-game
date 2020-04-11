@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NamesDialogComponent } from './names-dialog/names-dialog.component';
 import { ImageGuessModel } from './models/image-guess.model';
 import { NamesDialogModel } from './models/names-dialog.model';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,11 @@ export class AppComponent {
     images: ImageModel[] = [];
     guesses: ImageGuessModel[];
     hasVoted = false;
-    constructor(private dm: DataManagerService, public dialog: MatDialog) {
+    constructor(
+        private dm: DataManagerService,
+        public dialog: MatDialog,
+        private router: Router
+    ) {
         this.images = dm.images;
         this.guesses = dm.guesses;
     }
@@ -42,6 +47,25 @@ export class AppComponent {
     saveResults() {
         this.dm.guesses = this.guesses;
         this.dm.images = this.images;
+        const guessData = this.genGuessData();
+        this.router.navigate(['/results', guessData]);
+    }
+
+    private genGuessData() {
+        // use some bitwise operators to encode the guesses
+        // a few caveats:
+        // - JS encodes bitwise operators as 32-bit numbers
+        // - 4 bits are used
+        // - as is, will only work for up to 8 selections
+        const shiftIncrement = 4;
+        let idx = 0;
+        let result = 0;
+        for (const image of this.images) {
+            // tslint:disable-next-line: no-bitwise
+            result = result | (image.guess.index << (idx * shiftIncrement));
+            idx += 1;
+        }
+        return result;
     }
 
     private updateNameGuesses() {
