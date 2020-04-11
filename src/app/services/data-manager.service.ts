@@ -21,7 +21,8 @@ export class DataManagerService {
             guessedName: this.DEFAULT_NAME,
         }));
 
-        this._guesses = data.names.map((name) => ({
+        this._guesses = data.names.map((name, index) => ({
+            index: index + 1,
             imageIndex: null,
             name,
         }));
