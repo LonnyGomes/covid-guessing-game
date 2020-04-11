@@ -19,9 +19,11 @@ export class DataManagerService {
             index: index + 1,
             src: `${BASE_IMG_PATH}/${img}`,
             guessedName: this.DEFAULT_NAME,
+            guess: null,
         }));
 
-        this._guesses = data.names.map((name) => ({
+        this._guesses = data.names.map((name, index) => ({
+            index: index + 1,
             imageIndex: null,
             name,
         }));
@@ -35,8 +37,15 @@ export class DataManagerService {
         return this._images;
     }
 
+    set images(value: ImageModel[]) {
+        this._images = value;
+    }
+
     get guesses(): ImageGuessModel[] {
         return this._guesses;
+    }
+    set guesses(value: ImageGuessModel[]) {
+        this._guesses = value;
     }
 
     getImageForIndex(index: number): string {
@@ -47,5 +56,11 @@ export class DataManagerService {
         }
 
         return '';
+    }
+
+    getGuessByIndex(index: number): ImageGuessModel {
+        const [result] = this._guesses.filter((item) => item.index === index);
+
+        return result;
     }
 }

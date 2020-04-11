@@ -36,6 +36,14 @@
             </mat-card-actions>
         </mat-card>
     </div>
+    <footer class="footer-content">
+        <button
+            (click)="saveResults()"
+            mat-flat-button
+            [disabled]="!hasVoted"
+            [color]="hasVoted ? 'primary' : 'disabled'"
+        >
+            Save Results
+        </button>
+    </footer>
 </div>
-
-<router-outlet></router-outlet>
