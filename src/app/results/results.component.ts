@@ -19,6 +19,7 @@ export class ResultsComponent implements OnInit {
     images: ImageModel[];
     supportsSharing = false;
     sharingMessage = 'Here are a my guesses';
+    isShared = false;
 
     ngOnInit(): void {
         this.supportsSharing = navigator.share ? true : false;
@@ -26,6 +27,12 @@ export class ResultsComponent implements OnInit {
         this.images = this.dm.images;
         this.route.paramMap.subscribe((params) => {
             const guessData = Number(params.get('guessData'));
+
+            this.route.queryParams.subscribe((queryParams) => {
+                // if shared param is supplied, flip a flag
+                this.isShared = queryParams.shared ? true : false;
+            });
+
             if (!isNaN(guessData)) {
                 this.decodeGuessData(guessData);
                 this.sharingMessage = this.genSharingMessage();
@@ -71,7 +78,7 @@ export class ResultsComponent implements OnInit {
                 await navigator.share({
                     title: 'My guess results',
                     text: this.sharingMessage,
-                    url: window.location.href,
+                    url: `${window.location.href}?shared=true`,
                 });
             } else {
                 const canvas = await html2canvas(
