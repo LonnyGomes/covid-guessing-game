@@ -1,8 +1,11 @@
 @import '../sass-variables';
 
+$img-padding: 10px;
+
 .grid-content {
     display: grid;
     grid-template-rows: 50px auto 70px;
+    justify-content: center;
 }
 
 .header-content {
@@ -23,11 +26,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    max-width: $img-dimension * 3 + ($img-padding * 2 * 3);
 }
 
 .img-container {
-    padding: 5px;
-    margin: 5px;
+    padding: $img-padding / 2;
+    margin: $img-padding / 2;
     cursor: pointer;
 }
 
