@@ -24,5 +24,6 @@ body {
     mat-dialog-container {
         background: $panel-background-fallback;
         background: $panel-background;
+        border: 4px solid $bg-color-2;
     }
 }

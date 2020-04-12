@@ -18,6 +18,19 @@
         background: $panel-background-fallback;
         background: $panel-background;
         border-color: mat-color($accent, A400);
+
+        .mat-card-header-text {
+            margin: 10px 5px 0px 10px;
+        }
+
+        &.mat-flat-button {
+            border-radius: 0px;
+            background: mat-color($primary);
+        }
+
+        &.mat-card {
+            border-radius: 0px;
+        }
     }
 }
 
