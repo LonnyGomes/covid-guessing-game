@@ -24,10 +24,6 @@ body {
     mat-dialog-container {
         background: $panel-background-fallback;
         background: $panel-background;
+        border: 1px solid $bg-color-2;
     }
-}
-
-.mat-card {
-    background: $panel-background-fallback;
-    background: $panel-background;
 }

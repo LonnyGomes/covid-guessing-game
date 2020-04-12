@@ -1,0 +1,67 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+@import './sass-variables';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+@mixin guess-the-gif-app-theme($theme) {
+    // Extract the palettes you need from the theme definition.
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    // Define any styles affected by the theme.
+    .guess-the-gif {
+        &.mat-card {
+            border: 1px solid $bg-color-2;
+            // Use mat-color to extract individual colors from a palette.
+            background: $panel-background-fallback;
+            background: $panel-background;
+            //border-color: mat-color($accent, A400);
+            border: 1px solid $bg-color-2;
+        }
+
+        .mat-card-header-text {
+            margin: 10px 5px 0px 10px;
+        }
+
+        &.mat-flat-button {
+            border-radius: 0px;
+        }
+
+        &.mat-card {
+            border-radius: 0px;
+        }
+    }
+}
+
+@mixin guess-the-gif-typography($config) {
+    .guess-the-gif {
+        font: {
+            family: mat-font-family($config, body-1);
+            size: mat-font-size($config, body-1);
+            weight: mat-font-weight($config, body-1);
+        }
+    }
+}
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$guess-the-gif-app-primary: mat-palette($mat-pink, A200);
+$guess-the-gif-app-accent: mat-palette($mat-blue-grey);
+$guess-the-gif-app-warn: mat-palette($mat-deep-orange);
+// Create the theme object (a Sass map containing all of the palettes).
+$guess-the-gif-app-theme: mat-dark-theme(
+    $guess-the-gif-app-primary,
+    $guess-the-gif-app-accent,
+    $guess-the-gif-app-warn
+);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($guess-the-gif-app-theme);
+
+// Include theme styles for your custom components.
+@include guess-the-gif-app-theme($guess-the-gif-app-theme);
