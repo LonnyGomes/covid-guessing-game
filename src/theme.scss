@@ -14,10 +14,14 @@
 
     // Define any styles affected by the theme.
     .guess-the-gif {
-        // Use mat-color to extract individual colors from a palette.
-        background: $panel-background-fallback;
-        background: $panel-background;
-        border-color: mat-color($accent, A400);
+        &.mat-card {
+            border: 1px solid $bg-color-2;
+            // Use mat-color to extract individual colors from a palette.
+            background: $panel-background-fallback;
+            background: $panel-background;
+            //border-color: mat-color($accent, A400);
+            border: 1px solid $bg-color-2;
+        }
 
         .mat-card-header-text {
             margin: 10px 5px 0px 10px;
@@ -25,7 +29,6 @@
 
         &.mat-flat-button {
             border-radius: 0px;
-            background: mat-color($primary);
         }
 
         &.mat-card {
