@@ -1,11 +1,22 @@
 {
-    "names": ["Kristin", "James", "Liz", "Ron", "Janine", "Lonny"],
+    "names": [
+        "Kristin",
+        "James",
+        "Liz",
+        "Ron",
+        "Janine",
+        "Lonny",
+        "Pedro",
+        "Maria Fernanda"
+    ],
     "images": [
         "jim-carrey-worried.gif",
         "wooded-path.png",
         "this-too-shall-pass.png",
         "pooh.gif",
         "tree-cliff.png",
-        "little-rascals.gif"
+        "little-rascals.gif",
+        "blessed.gif",
+        "kermit-lost.gif"
     ]
 }

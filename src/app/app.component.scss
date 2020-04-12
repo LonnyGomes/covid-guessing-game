@@ -1,6 +1,7 @@
 @import '../sass-variables';
 
 $img-padding: 10px;
+$mobile-breakpoint: $img-dimension * 3;
 
 .grid-content {
     display: grid;
@@ -21,13 +22,16 @@ $img-padding: 10px;
         padding-left: 10px;
         font-family: $header-font;
     }
+    @media screen and (max-width: $mobile-breakpoint) {
+        border-radius: 0px;
+    }
 }
 .images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: $img-dimension * 3 + ($img-padding * 2 * 3);
+    max-width: $img-dimension * 3 + ($img-padding * 2 * 3) + 10;
 }
 
 .img-container {
@@ -59,7 +63,7 @@ $img-padding: 10px;
 
 .img-title {
     font-family: $header-font;
-    color: #dadada;
+    font-size: 1.3rem;
 }
 
 .guessed-name-title {
@@ -80,5 +84,9 @@ $img-padding: 10px;
         height: 35px;
         font-size: 1.4rem;
         font-family: $header-font;
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+        border-radius: 0px;
     }
 }
