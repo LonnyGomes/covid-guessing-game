@@ -16,25 +16,25 @@
     background: $header-background;
     width: 100%;
     height: 100%;
-    max-width: 900px;
+    max-width: 800px;
     max-height: 500px;
 
     h1 {
         font-family: $header-font;
-        font-size: 4.5rem;
+        font-size: 5rem;
         color: #fff;
     }
 
     p {
         padding: 20px 10px;
         color: #fff;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 300;
     }
 
     .separator {
-        width: 300px;
-        border: 1px solid #c2185b;
+        width: 70%;
+        border: 1px solid #ff4081;
     }
 }
 
@@ -44,7 +44,7 @@
     align-items: center;
     .header-icon {
         font-size: 4.5rem;
-        color: rgb(231, 231, 231);
+        color: #ff4081;
         width: 80px;
         height: 80px;
     }
