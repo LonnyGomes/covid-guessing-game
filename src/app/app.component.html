@@ -17,9 +17,11 @@
                         class="img-title"
                         [innerHTML]="'Image #' + image.index + ': '"
                     ></span
-                    ><span class="guessed-name-title">{{
-                        image.guessedName
-                    }}</span></mat-card-title
+                    ><span
+                        *ngIf="image.guessedName; else unset"
+                        class="guessed-name-title"
+                        >{{ image.guessedName }}</span
+                    ></mat-card-title
                 >
             </mat-card-header>
             <div
@@ -51,3 +53,7 @@
         </button>
     </footer>
 </div>
+
+<ng-template #unset>
+    <span><mat-icon class="help-icon">help</mat-icon></span>
+</ng-template>

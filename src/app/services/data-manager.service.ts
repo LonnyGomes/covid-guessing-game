@@ -13,12 +13,11 @@ export class DataManagerService {
     // tslint:disable-next-line: variable-name
     private _guesses: ImageGuessModel[];
 
-    DEFAULT_NAME = '❓';
     constructor() {
         this._images = data.images.map((img, index) => ({
             index: index + 1,
             src: `${BASE_IMG_PATH}/${img}`,
-            guessedName: this.DEFAULT_NAME,
+            guessedName: null,
             guess: null,
         }));
 

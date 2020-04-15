@@ -82,8 +82,7 @@ export class AppComponent {
 
         // update images with the selections from the guesses results
         this.images.forEach((image) => {
-            image.guessedName =
-                guessesHash[image.index]?.name || this.dm.DEFAULT_NAME;
+            image.guessedName = guessesHash[image.index]?.name;
             image.guess = guessesHash[image.index] || null;
         });
     }
